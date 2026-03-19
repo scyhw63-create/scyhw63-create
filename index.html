@@ -9,51 +9,82 @@
     html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: #1f1f1f; }
     a { color: inherit; text-decoration: none; }
     body { min-height: 100vh; }
+    
     header {
-      border-bottom: 1px solid #e8e8e8;
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
     }
+
+
+    
     .container {
       width: min(1100px, calc(100% - 32px));
       margin: 0 auto;
     }
+
+
+    
     .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 18px 0;
-      flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+  flex-wrap: wrap;
     }
+
+
+    
     .brand h1 {
-      margin: 0;
-      font-size: 28px;
-      font-weight: 700;
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: #111;
     }
+
+
+    
     .brand p {
-      margin: 4px 0 0;
-      color: #6f6f6f;
-      font-size: 14px;
+  margin: 6px 0 0;
+  color: #7a7a7a;
+  font-size: 15px;
+  letter-spacing: 0.2px;
     }
+
+    
     nav {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: #f8f8f8;
+  padding: 8px;
+  border-radius: 999px;
+  border: 1px solid #ececec;
     }
-    nav a {
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 14px;
-      color: #4f4f4f;
-      transition: 0.2s ease;
-    }
-    nav a.active, nav a:hover {
-      background: #f4f4f4;
-      color: #111;
-    }
+
+nav a {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.25s ease;
+}
+    
+    nav a.active,
+nav a:hover {
+  background: linear-gradient(135deg, #111 0%, #333 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
     main {
       padding: 42px 0 56px;
     }
@@ -181,19 +212,20 @@
 </head>
 <body>
   <header>
-    <div class="container topbar">
-      <div class="brand">
-        <h1>Hanshuo WANG</h1>
-        <p>Personal Website • Academic • Portfolio</p>
-      </div>
-      <nav>
-        <a href="#home" data-page="home">Home</a>
-        <a href="#cv" data-page="cv">CV</a>
-        <a href="#research" data-page="research">Research</a>
-        <a href="#projects" data-page="projects">Projects</a>
-        <a href="#contact" data-page="contact">Contact</a>
-      </nav>
+  <div class="container topbar">
+    <div class="brand">
+      <h1>Hanshuo WANG</h1>
+      <p>Personal Website • Academic • Portfolio</p>
     </div>
+
+    <nav>
+      <a href="#home" data-page="home">Home</a>
+      <a href="#cv" data-page="cv">CV</a>
+      <a href="#research" data-page="research">Research</a>
+      <a href="#projects" data-page="projects">Projects</a>
+      <a href="#contact" data-page="contact">Contact</a>
+    </nav>
+  </div>
   </header>
 
   <main class="container">
