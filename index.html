@@ -189,6 +189,41 @@
   border: none;
 }
 
+    .home-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 0.9fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.profile-photo-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 26px;
+  padding: 18px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+}
+
+.profile-photo-card img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.profile-photo-caption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* hero-line*/ 
     
@@ -361,20 +396,28 @@
   <main>
     <div class="container">
       <section class="page" id="page-home">
-        <h2 class="section-title">Home</h2>
-        <div class="card">
-          <h3>Welcome</h3>
-          <p>
-            Welcome to my personal website. This website presents my educational background,
-            research interests, projects, and personal profile in a clean multi-page style.
-          </p>
-          <p>
-            My interests include Finance, Data Analysis in Finance, Big Data, Game Development 
-            and advanced topics related to business and technology.
-          </p>
-        </div>
-      </section>
+  <h2 class="section-title">Home</h2>
+  <div class="home-layout">
+    <div class="card">
+      <h3>Welcome</h3>
+      <p>
+        Welcome to my personal website. This website presents my educational background,
+        research interests, projects, and personal profile in a clean multi-page style.
+      </p>
+      <p>
+        My interests include Finance, Data Analysis in Finance, Big Data, Game Development
+        and advanced topics related to business and technology.
+      </p>
+    </div>
 
+    <div class="profile-photo-card">
+      <img src="Personal Profile.png" alt="Hanshuo WANG Photo">
+      <div class="profile-photo-caption">Hanshuo WANG</div>
+    </div>
+  </div>
+</section>
+
+      
       <section class="page" id="page-cv">
   <h2 class="section-title">CV</h2>
 
