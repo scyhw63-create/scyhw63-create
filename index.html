@@ -1,133 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Personal Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
-      color: #222;
-    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: #1f1f1f; }
+    a { color: inherit; text-decoration: none; }
+    body { min-height: 100vh; }
     header {
-      border-bottom: 1px solid #eee;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #333;
+      border-bottom: 1px solid #e8e8e8;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+      flex-wrap: wrap;
+    }
+    .brand h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .brand p {
+      margin: 4px 0 0;
+      color: #6f6f6f;
+      font-size: 14px;
+    }
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: #4f4f4f;
+      transition: 0.2s ease;
+    }
+    nav a.active, nav a:hover {
+      background: #f4f4f4;
+      color: #111;
+    }
+    main {
+      padding: 42px 0 56px;
+    }
+    .page {
+      display: none;
+      animation: fade 0.25s ease;
+    }
+    .page.active {
+      display: block;
+    }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .hero {
-      display: flex;
-      gap: 40px;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    .hero h2 {
+      margin: 0 0 14px;
+      font-size: 46px;
+      line-height: 1.15;
+    }
+    .hero p {
+      color: #4a4a4a;
+      font-size: 17px;
+      line-height: 1.8;
+      margin: 0 0 14px;
+    }
+    .photo-box {
+      border: 1px solid #e8e8e8;
+      border-radius: 24px;
+      padding: 16px;
+      background: #fafafa;
     }
     .photo {
-      width: 250px;
-      height: 300px;
-      background: #ddd;
+      aspect-ratio: 4 / 5;
+      background: #dedede;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #666;
+      font-size: 14px;
     }
-    h1 {
-      font-size: 40px;
-      margin: 0;
+    .section-title {
+      margin: 0 0 20px;
+      font-size: 34px;
     }
-    h2 {
-      margin-top: 40px;
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
     }
-    .grid {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
     }
     .card {
-      border: 1px solid #eee;
-      padding: 20px;
-      flex: 1;
-      min-width: 250px;
+      border: 1px solid #e8e8e8;
+      border-radius: 22px;
+      padding: 24px;
+      background: #fff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+    .card h3, .card h4 {
+      margin: 0 0 10px;
+    }
+    .card p, .card li {
+      color: #4b4b4b;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    ul.clean {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ul.clean li + li {
+      margin-top: 10px;
+    }
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 14px;
+      border: 1px solid #dedede;
+      background: #111;
+      color: white;
+      font-size: 14px;
+    }
+    .btn.secondary {
+      background: #fff;
+      color: #222;
+    }
+    .timeline-item + .timeline-item {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #eee;
     }
     footer {
-      border-top: 1px solid #eee;
-      padding: 20px;
-      text-align: center;
+      border-top: 1px solid #e8e8e8;
+      padding: 22px 0;
       color: #666;
+      font-size: 14px;
+      margin-top: 24px;
+    }
+    @media (max-width: 860px) {
+      .hero, .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .hero h2 {
+        font-size: 36px;
+      }
     }
   </style>
 </head>
-
 <body>
-
-<header>
-  <div><strong>Hanshuo WANG</strong></div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#cv">CV</a>
-    <a href="#research">Research</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<div class="container">
-
-  <section id="home" class="hero">
-    <div>
-      <h1>Hanshuo WANG</h1>
-      <p><strong>Research interests:</strong> Finance, Innovation, FinTech</p>
-      <p>
-        Welcome to my personal website. This page introduces my academic background,
-        research interests, and projects.
-      </p>
-    </div>
-    <div class="photo">Photo</div>
-  </section>
-
-  <section id="cv">
-    <h2>CV</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Education</h3>
-        <p>Computer Science and Technology     Bachelor Degree    09/2021-07/2025 </p>
-        <p>Financial Technology       Master Degree                   09/2025-11/2026</p>
-       
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <h1>Your Name</h1>
+        <p>Personal Website • Academic • Portfolio</p>
       </div>
-      <div class="card">
-        <h3>Experience</h3>
-        <p>Internships / Projects</p>
+      <nav>
+        <a href="#home" data-page="home">Home</a>
+        <a href="#cv" data-page="cv">CV</a>
+        <a href="#research" data-page="research">Research</a>
+        <a href="#projects" data-page="projects">Projects</a>
+        <a href="#contact" data-page="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page" id="page-home">
+      <div class="hero">
+        <div>
+          <h2>Your Full Name</h2>
+          <p><strong>Research interests:</strong> Finance, innovation, digital platforms, data analysis, and interdisciplinary projects.</p>
+          <p>Welcome to my personal website. This is a multi-page style website where each navigation item opens a separate page view, such as Home, CV, Research, Projects, and Contact.</p>
+          <p>You can replace all placeholder text with your own academic background, experience, publications, portfolio, and contact details.</p>
+          <div class="button-row">
+            <a class="btn" href="#cv">View CV</a>
+            <a class="btn secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <div class="photo-box">
+          <div class="photo">Your Photo</div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="research">
-    <h2>Research</h2>
-    <div class="card">
-      <p>Topics: Cryptocurrency, Risk Management, Machine Learning</p>
-    </div>
-  </section>
+    <section class="page" id="page-cv">
+      <h2 class="section-title">CV</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Education</h3>
+          <ul class="clean">
+            <li><strong>MSc in FinTech</strong> — Your University</li>
+            <li><strong>Bachelor’s Degree</strong> — Your University</li>
+            <li><strong>Additional Training</strong> — Certifications or workshops</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Experience</h3>
+          <ul class="clean">
+            <li>Internship / analyst experience</li>
+            <li>Research assistant / teaching assistant</li>
+            <li>Student projects / leadership experience</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 22px;">
+        <h3>Skills</h3>
+        <p>Python, Excel, data analysis, financial research, academic writing, presentation, teamwork, and communication.</p>
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: scxhw6@nottingham.edu.cn</p>
-    <p>Location: University of Nottingham, Ningbo, China</p>
-  </section>
+    <section class="page" id="page-research">
+      <h2 class="section-title">Research</h2>
+      <div class="card">
+        <h3>Research Interests</h3>
+        <p>My academic interests include corporate finance, digital assets, financial regulation, machine learning in finance, and platform-based business models.</p>
+      </div>
+      <div class="card" style="margin-top: 22px;">
+        <h3>Selected Topics</h3>
+        <div class="timeline-item">
+          <h4>Cryptocurrency and regulation</h4>
+          <p>Regulatory comparison across Hong Kong, Singapore, Dubai, and Australia.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Digital marketing and hospitality</h4>
+          <p>Customer journey and digital strategy analysis in the hotel industry.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Quantitative finance projects</h4>
+          <p>Portfolio analysis, benchmark comparison, and return-based performance evaluation.</p>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section class="page" id="page-projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Project One</h3>
+          <p>A short description of a coursework project, research report, or personal portfolio item.</p>
+        </div>
+        <div class="card">
+          <h3>Project Two</h3>
+          <p>Add details about your data analysis, website, coding project, or academic work here.</p>
+        </div>
+        <div class="card">
+          <h3>Project Three</h3>
+          <p>This section can also include certificates, presentations, competitions, or publications.</p>
+        </div>
+      </div>
+    </section>
 
-<footer>
-  © 2026 Hanshuo WANG
-</footer>
+    <section class="page" id="page-contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <p><strong>Email:</strong> your.email@example.com</p>
+        <p><strong>LinkedIn:</strong> linkedin.com/in/yourname</p>
+        <p><strong>GitHub:</strong> github.com/yourname</p>
+        <p><strong>Location:</strong> Your City</p>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <div class="container">© 2026 Your Name. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const pages = ["home", "cv", "research", "projects", "contact"];
+
+    function showPage(pageName) {
+      const target = pages.includes(pageName) ? pageName : "home";
+
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+
+      document.querySelectorAll('nav a').forEach(link => {
+        link.classList.remove('active');
+      });
+
+      const pageElement = document.getElementById(`page-${target}`);
+      const navElement = document.querySelector(`nav a[data-page="${target}"]`);
+
+      if (pageElement) pageElement.classList.add('active');
+      if (navElement) navElement.classList.add('active');
+    }
+
+    function handleRoute() {
+      const hash = window.location.hash.replace('#', '');
+      showPage(hash || 'home');
+    }
+
+    window.addEventListener('hashchange', handleRoute);
+    window.addEventListener('load', handleRoute);
+  </script>
 </body>
 </html>
