@@ -219,6 +219,68 @@
   text-align: center;
 }
 
+.transcript-section + .transcript-section {
+  margin-top: 32px;
+}
+
+.transcript-title {
+  margin: 0 0 16px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+
+.transcript-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.transcript-btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid #d9d9d9;
+  background: #111;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.transcript-btn:hover {
+  background: #2a2a2a;
+}
+
+.transcript-btn.secondary {
+  background: #fff;
+  color: #222;
+}
+
+.transcript-btn.secondary:hover {
+  background: #f5f5f5;
+}
+
+.transcript-preview {
+  width: 100%;
+  height: 800px;
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fafafa;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+}
+
+.transcript-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+
+    
 @media (max-width: 900px) {
   .home-layout {
     grid-template-columns: 1fr;
@@ -430,11 +492,12 @@
       </div>
 
       <nav>
-        <a href="#home" data-page="home">Home</a>
-        <a href="#cv" data-page="cv">CV</a>
-        <a href="#research" data-page="research">Research</a>
-        <a href="#projects" data-page="projects">Projects</a>
-        <a href="#calligraphy" data-page="calligraphy">Calligraphy Sets</a>
+  <a href="#home" data-page="home">Home</a>
+  <a href="#cv" data-page="cv">CV</a>
+  <a href="#transcript" data-page="transcript">Transcript</a>
+  <a href="#research" data-page="research">Research</a>
+  <a href="#projects" data-page="projects">Projects</a>
+  <a href="#calligraphy" data-page="calligraphy">Calligraphy Sets</a>
       </nav>
     </div>
 
@@ -511,7 +574,40 @@
     <iframe src="Hanshuo WANG_CV_New.pdf"></iframe>
   </div>
 </section>
+
       
+<section class="page" id="page-transcript">
+  <h2 class="section-title">Transcript</h2>
+
+  <div class="card transcript-section">
+    <h3 class="transcript-title">Undergraduate Transcript</h3>
+
+    <div class="transcript-actions">
+      <a class="transcript-btn" href="Undergraduate_Transcript.pdf" target="_blank">View Undergraduate Transcript</a>
+      <a class="transcript-btn secondary" href="Undergraduate_Transcript.pdf" download>Download Undergraduate Transcript</a>
+    </div>
+
+    <div class="transcript-preview">
+      <iframe src="Undergraduate_Transcript.pdf"></iframe>
+    </div>
+  </div>
+
+  <div class="card transcript-section">
+    <h3 class="transcript-title">Postgraduate Transcript</h3>
+
+    <div class="transcript-actions">
+      <a class="transcript-btn" href="Postgraduate_Transcript.pdf" target="_blank">View Postgraduate Transcript</a>
+      <a class="transcript-btn secondary" href="Postgraduate_Transcript.pdf" download>Download Postgraduate Transcript</a>
+    </div>
+
+    <div class="transcript-preview">
+      <iframe src="Postgraduate_Transcript.pdf"></iframe>
+    </div>
+  </div>
+</section>
+
+
+  
 
       <section class="page" id="page-research">
         <h2 class="section-title">Research</h2>
@@ -612,32 +708,35 @@
   </footer>
 
   <script>
-  const pages = ["home", "cv", "research", "projects", "calligraphy"];
+  const pages = ["home", "cv", "transcript", "research", "projects", "calligraphy"];
 
   const heroContent = {
-    home: {
-      title: "Marcon WANG",
-      subtitle: "Finance, Machine Learning, Data Analysis in Finance, Deep Learning",
-      small: "Learner, Candidate, Passioner"
-    },
-    cv: {
-      title: "Curriculum Vitae",
-      subtitle: "Education & Experience & Activities & Skills"
-    },
-    research: {
-      title: "Research",
-      subtitle: "Empirical Financial Research & Machine Learning in Finance"
-    },
-    projects: {
-      title: "Projects",
-      subtitle: "Coursework, Coding, Quantitative Finance, Technical Practice"
-    },
-    
-    calligraphy: {
-      title: "Calligraphy Sets",
-      subtitle: "Personal Works & Related Prizes"
-    }
-  };
+  home: {
+    title: "Marcon WANG",
+    subtitle: "Finance, Machine Learning, Data Analysis in Finance, Deep Learning",
+    small: "Learner, Candidate, Passioner"
+  },
+  cv: {
+    title: "Curriculum Vitae",
+    subtitle: "Education & Experience & Activities & Skills",
+  },
+  transcript: {
+    title: "Transcript",
+    subtitle: "Undergraduate & Postgraduate Academic Records"
+  },
+  research: {
+    title: "Research",
+    subtitle: "Empirical Financial Research & Machine Learning in Finance"
+  },
+  projects: {
+    title: "Projects",
+    subtitle: "Coursework & Coding & Quantitative Finance & Technical Practice"
+  },
+  calligraphy: {
+    title: "Calligraphy Sets",
+    subtitle: "Personal Works & Related Prizes"
+  }
+};
 
   function updateHero(pageName) {
     const content = heroContent[pageName] || heroContent.home;
