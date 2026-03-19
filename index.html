@@ -342,6 +342,63 @@
         grid-template-columns: 1fr;
       }
 
+      .art-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 18px;
+}
+
+.art-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+}
+
+.art-card img {
+  width: 100%;
+  height: 300px;
+  display: block;
+  object-fit: cover;
+}
+
+.art-card .art-text {
+  padding: 18px;
+}
+
+.art-card .art-text h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #1e1e1e;
+}
+
+.art-card .art-text p {
+  margin: 0;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.award-list {
+  margin-top: 18px;
+  padding-left: 20px;
+}
+
+.award-list li {
+  margin-bottom: 10px;
+  color: #4b4b4b;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+@media (max-width: 900px) {
+  .art-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
       .topbar {
         justify-content: center;
         text-align: center;
@@ -502,18 +559,51 @@
       </section>
 
       <section class="page" id="page-calligraphy">
-        <h2 class="section-title">Calligraphy Sets</h2>
-        <div class="card">
-          <p><strong>Work Sets</strong></p>
+  <h2 class="section-title">Calligraphy Sets</h2>
 
+  <div class="card">
+    <h3>Selected Works</h3>
+    <p>
+      This section presents some of my soft brush calligraphy works and related achievements.
+      These works reflect my long-term interest in traditional Chinese calligraphy and artistic practice.
+    </p>
 
-
-
-          
-          <p><strong>Related Prizes</strong></p>
-
+    <div class="art-grid">
+      <div class="art-card">
+        <img src="images/calligraphy1.jpg" alt="Calligraphy Work 1">
+        <div class="art-text">
+          <h4>Calligraphy Work I</h4>
+          <p>A representative soft brush calligraphy piece showing regular script style and balanced structure.</p>
         </div>
-      </section>
+      </div>
+
+      <div class="art-card">
+        <img src="images/calligraphy2.jpg" alt="Calligraphy Work 2">
+        <div class="art-text">
+          <h4>Calligraphy Work II</h4>
+          <p>This work focuses on line strength, rhythm, and the traditional aesthetic of Chinese calligraphy.</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <img src="images/calligraphy3.jpg" alt="Calligraphy Work 3">
+        <div class="art-text">
+          <h4>Calligraphy Work III</h4>
+          <p>A personal work set demonstrating practice, patience, and cultural appreciation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 24px;">
+    <h3>Related Prizes</h3>
+    <ul class="award-list">
+      <li>Second Prize in a senior student calligraphy competition in Hegang, Heilongjiang Province.</li>
+      <li>Recognition for excellent soft brush calligraphy works in school-level cultural activities.</li>
+      <li>Personal long-term practice and collection of calligraphy works and writing sets.</li>
+    </ul>
+  </div>
+</section>
     </div>
   </main>
 
