@@ -3,330 +3,414 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Personal Website</title>
+  <title>Marcon WANG (Hanshuo)</title>
   <style>
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: #1f1f1f; }
-    a { color: inherit; text-decoration: none; }
-    body { min-height: 100vh; }
-    
-    header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #1f1f1f;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    
+    body {
+      min-height: 100vh;
+    }
+
     .container {
-      width: min(1100px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* ===== Hero Header ===== */
+    .hero-header {
+      position: relative;
+      min-height: 78vh;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.68)),
+        url("Personal Profile.png") center center / cover no-repeat;
+      color: white;
+      overflow: hidden;
+    }
 
-    
+    /* 如果你不想用自己的照片做背景，可以把上面 url("Personal Profile.png")
+       换成你上传的另一张建筑图，比如：
+       url("background.jpg")
+    */
+
+    .hero-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.08) 0%,
+        rgba(0,0,0,0.12) 35%,
+        rgba(0,0,0,0.20) 100%
+      );
+      pointer-events: none;
+    }
+
     .topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 20px 0;
-  flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+      flex-wrap: wrap;
     }
 
-
-    
     .brand h1 {
-  margin: 0;
-  font-size: 34px;
-  font-weight: 800;
-  letter-spacing: -0.8px;
-  color: #111;
+      margin: 0;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: #fff;
     }
 
-
-    
     .brand p {
-  margin: 6px 0 0;
-  color: #7a7a7a;
-  font-size: 15px;
-  letter-spacing: 0.2px;
+      margin: 6px 0 0;
+      color: rgba(255,255,255,0.78);
+      font-size: 14px;
+      letter-spacing: 0.2px;
     }
 
-    
     nav {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  background: #f8f8f8;
-  padding: 8px;
-  border-radius: 999px;
-  border: 1px solid #ececec;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
-nav a {
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #555;
-  transition: all 0.25s ease;
-}
-    
-    nav a.active,
-nav a:hover {
-  background: linear-gradient(135deg, #111 0%, #333 100%);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  transform: translateY(-1px);
-}
-    main {
-      padding: 42px 0 56px;
+    nav a {
+      color: rgba(255,255,255,0.88);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 6px 8px;
+      transition: 0.25s ease;
+      position: relative;
     }
+
+    nav a:hover,
+    nav a.active {
+      color: #ffffff;
+    }
+
+    nav a.active::after,
+    nav a:hover::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: -4px;
+      height: 2px;
+      background: #74dceb;
+      border-radius: 999px;
+    }
+
+    .hero-center {
+      position: relative;
+      z-index: 2;
+      min-height: calc(78vh - 80px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 0 90px;
+    }
+
+    .hero-center h2 {
+      margin: 0;
+      font-size: clamp(52px, 9vw, 112px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -2px;
+      font-family: Georgia, "Times New Roman", serif;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.22);
+    }
+
+    .hero-line {
+      width: 140px;
+      height: 10px;
+      background: #67d8e8;
+      margin: 26px auto 28px;
+      border-radius: 999px;
+      box-shadow: 0 2px 10px rgba(103, 216, 232, 0.35);
+    }
+
+    .hero-subtitle {
+      max-width: 1200px;
+      margin: 0 auto 20px;
+      font-size: clamp(22px, 2.8vw, 38px);
+      line-height: 1.55;
+      font-style: italic;
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 3px 10px rgba(0,0,0,0.18);
+    }
+
+    .hero-subtitle.small {
+      font-size: clamp(24px, 2.4vw, 34px);
+      margin-top: 8px;
+    }
+
+    /* ===== Main ===== */
+    main {
+      padding: 48px 0 56px;
+      background: #fff;
+    }
+
     .page {
       display: none;
       animation: fade 0.25s ease;
     }
+
     .page.active {
       display: block;
     }
+
     @keyframes fade {
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .hero {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 36px;
-      align-items: start;
-    }
-    .hero h2 {
-      margin: 0 0 14px;
-      font-size: 46px;
-      line-height: 1.15;
-    }
-    .hero p {
-      color: #4a4a4a;
-      font-size: 17px;
-      line-height: 1.8;
-      margin: 0 0 14px;
-    }
-    .photo-box {
-      border: 1px solid #e8e8e8;
-      border-radius: 24px;
-      padding: 16px;
-      background: #fafafa;
-    }
-    .photo {
-      aspect-ratio: 4 / 5;
-      background: #dedede;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      font-size: 14px;
-    }
+
     .section-title {
-      margin: 0 0 20px;
-      font-size: 34px;
+      margin: 0 0 22px;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #171717;
     }
+
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      gap: 24px;
     }
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 24px;
     }
+
     .card {
       border: 1px solid #e8e8e8;
-      border-radius: 22px;
-      padding: 24px;
+      border-radius: 26px;
+      padding: 28px;
       background: #fff;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
     }
+
     .card h3, .card h4 {
-      margin: 0 0 10px;
+      margin: 0 0 12px;
+      font-size: 24px;
+      color: #1e1e1e;
     }
+
     .card p, .card li {
       color: #4b4b4b;
-      line-height: 1.8;
+      line-height: 1.9;
       font-size: 16px;
     }
+
     ul.clean {
       list-style: none;
       margin: 0;
       padding: 0;
     }
+
     ul.clean li + li {
       margin-top: 10px;
     }
-    .button-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 11px 16px;
-      border-radius: 14px;
-      border: 1px solid #dedede;
-      background: #111;
-      color: white;
-      font-size: 14px;
-    }
-    .btn.secondary {
-      background: #fff;
-      color: #222;
-    }
+
     .timeline-item + .timeline-item {
       margin-top: 18px;
       padding-top: 18px;
       border-top: 1px solid #eee;
     }
+
     footer {
       border-top: 1px solid #e8e8e8;
       padding: 22px 0;
       color: #666;
       font-size: 14px;
-      margin-top: 24px;
+      margin-top: 10px;
+      background: #fff;
     }
-    @media (max-width: 860px) {
-      .hero, .grid-2, .grid-3 {
+
+    @media (max-width: 900px) {
+      .grid-2, .grid-3 {
         grid-template-columns: 1fr;
       }
-      .hero h2 {
-        font-size: 36px;
+
+      .topbar {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero-center {
+        padding-top: 60px;
+        padding-bottom: 80px;
+      }
+
+      .hero-subtitle {
+        line-height: 1.45;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-  <div class="container topbar">
-    <div class="brand">
-      <h1>Hanshuo WANG</h1>
-      <p>Personal Website • Academic • Portfolio</p>
+
+  <!-- Hero Header -->
+  <header class="hero-header">
+    <div class="container topbar">
+      <div class="brand">
+        <h1>Marcon WANG (Hanshuo)</h1>
+        <p>Academic Profile · Research · Portfolio</p>
+      </div>
+
+      <nav>
+        <a href="#home" data-page="home">Home</a>
+        <a href="#cv" data-page="cv">CV</a>
+        <a href="#research" data-page="research">Research</a>
+        <a href="#projects" data-page="projects">Projects</a>
+        <a href="#contact" data-page="contact">Contact</a>
+      </nav>
     </div>
 
-    <nav>
-      <a href="#home" data-page="home">Home</a>
-      <a href="#cv" data-page="cv">CV</a>
-      <a href="#research" data-page="research">Research</a>
-      <a href="#projects" data-page="projects">Projects</a>
-      <a href="#contact" data-page="contact">Contact</a>
-    </nav>
-  </div>
+    <div class="container hero-center">
+      <h2>Marcon WANG</h2>
+      <div class="hero-line"></div>
+      <p class="hero-subtitle">
+        Finance, Innovation, Digital Platforms, Data Analysis, Interdisciplinary Projects
+      </p>
+      <p class="hero-subtitle small">
+        Researcher, Analyst, Learner
+      </p>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="page" id="page-home">
-      <div class="hero">
-        <div>
-          <h2>Hanshuo WANG</h2>
-          <p><strong>Research interests:</strong> Finance, innovation, digital platforms, data analysis, and interdisciplinary projects.</p>
-          <p>Welcome to my personal website. This is a multi-page style website where each navigation item opens a separate page view, such as Home, CV, Research, Projects, and Contact.</p>
-          <p>You can replace all placeholder text with your own academic background, experience, publications, portfolio, and contact details.</p>
-          <div class="button-row">
-            <a class="btn" href="#cv">View CV</a>
-            <a class="btn secondary" href="#contact">Contact Me</a>
+  <!-- Main -->
+  <main>
+    <div class="container">
+      <section class="page" id="page-home">
+        <h2 class="section-title">Home</h2>
+        <div class="card">
+          <h3>Welcome</h3>
+          <p>
+            Welcome to my personal website. This website presents my academic background,
+            research interests, projects, and personal profile in a clean multi-page style.
+          </p>
+          <p>
+            My interests include finance, innovation, digital platforms, data analysis,
+            and interdisciplinary topics related to business and technology.
+          </p>
+        </div>
+      </section>
+
+      <section class="page" id="page-cv">
+        <h2 class="section-title">CV</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Education</h3>
+            <ul class="clean">
+              <li><strong>MSc in FinTech</strong> — Your University</li>
+              <li><strong>Bachelor’s Degree</strong> — Your University</li>
+              <li><strong>Additional Training</strong> — Certifications or workshops</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Experience</h3>
+            <ul class="clean">
+              <li>Internship / analyst experience</li>
+              <li>Research assistant / teaching assistant</li>
+              <li>Student projects / leadership experience</li>
+            </ul>
           </div>
         </div>
-        <div class="photo-box">
-          <img src="Personal Profile.png" alt="My Photo" style="width:100%; border-radius:18px;">
-        </div>
-      </div>
-    </section>
 
-    <section class="page" id="page-cv">
-      <h2 class="section-title">CV</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Education</h3>
-          <ul class="clean">
-            <li><strong>MSc in FinTech</strong> — Your University</li>
-            <li><strong>Bachelor’s Degree</strong> — Your University</li>
-            <li><strong>Additional Training</strong> — Certifications or workshops</li>
-          </ul>
+        <div class="card" style="margin-top: 24px;">
+          <h3>Skills</h3>
+          <p>
+            Python, Excel, data analysis, financial research, academic writing,
+            presentation, teamwork, and communication.
+          </p>
         </div>
-        <div class="card">
-          <h3>Experience</h3>
-          <ul class="clean">
-            <li>Internship / analyst experience</li>
-            <li>Research assistant / teaching assistant</li>
-            <li>Student projects / leadership experience</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card" style="margin-top: 22px;">
-        <h3>Skills</h3>
-        <p>Python, Excel, data analysis, financial research, academic writing, presentation, teamwork, and communication.</p>
-      </div>
-    </section>
+      </section>
 
-    <section class="page" id="page-research">
-      <h2 class="section-title">Research</h2>
-      <div class="card">
-        <h3>Research Interests</h3>
-        <p>My academic interests include corporate finance, digital assets, financial regulation, machine learning in finance, and platform-based business models.</p>
-      </div>
-      <div class="card" style="margin-top: 22px;">
-        <h3>Selected Topics</h3>
-        <div class="timeline-item">
-          <h4>Cryptocurrency and regulation</h4>
-          <p>Regulatory comparison across Hong Kong, Singapore, Dubai, and Australia.</p>
+      <section class="page" id="page-research">
+        <h2 class="section-title">Research</h2>
+        <div class="card">
+          <h3>Research Interests</h3>
+          <p>
+            My academic interests include corporate finance, digital assets, financial regulation,
+            machine learning in finance, and platform-based business models.
+          </p>
         </div>
-        <div class="timeline-item">
-          <h4>Digital marketing and hospitality</h4>
-          <p>Customer journey and digital strategy analysis in the hotel industry.</p>
-        </div>
-        <div class="timeline-item">
-          <h4>Quantitative finance projects</h4>
-          <p>Portfolio analysis, benchmark comparison, and return-based performance evaluation.</p>
-        </div>
-      </div>
-    </section>
 
-    <section class="page" id="page-projects">
-      <h2 class="section-title">Projects</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Project One</h3>
-          <p>A short description of a coursework project, research report, or personal portfolio item.</p>
+        <div class="card" style="margin-top: 24px;">
+          <h3>Selected Topics</h3>
+          <div class="timeline-item">
+            <h4>Cryptocurrency and Regulation</h4>
+            <p>Regulatory comparison across Hong Kong, Singapore, Dubai, and Australia.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Digital Marketing and Hospitality</h4>
+            <p>Customer journey and digital strategy analysis in the hotel industry.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Quantitative Finance Projects</h4>
+            <p>Portfolio analysis, benchmark comparison, and return-based performance evaluation.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Project Two</h3>
-          <p>Add details about your data analysis, website, coding project, or academic work here.</p>
-        </div>
-        <div class="card">
-          <h3>Project Three</h3>
-          <p>This section can also include certificates, presentations, competitions, or publications.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="page" id="page-contact">
-      <h2 class="section-title">Contact</h2>
-      <div class="card">
-        <p><strong>Email:</strong> your.email@example.com</p>
-        <p><strong>LinkedIn:</strong> linkedin.com/in/yourname</p>
-        <p><strong>GitHub:</strong> github.com/yourname</p>
-        <p><strong>Location:</strong> Your City</p>
-      </div>
-    </section>
+      <section class="page" id="page-projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Project One</h3>
+            <p>A short description of a coursework project, research report, or portfolio item.</p>
+          </div>
+          <div class="card">
+            <h3>Project Two</h3>
+            <p>Add details about your data analysis, website, coding project, or academic work here.</p>
+          </div>
+          <div class="card">
+            <h3>Project Three</h3>
+            <p>This section can include certificates, presentations, competitions, or publications.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="card">
+          <p><strong>Email:</strong> your.email@example.com</p>
+          <p><strong>LinkedIn:</strong> linkedin.com/in/yourname</p>
+          <p><strong>GitHub:</strong> github.com/yourname</p>
+          <p><strong>Location:</strong> Your City</p>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
-    <div class="container">© 2026 Your Name. All rights reserved.</div>
+    <div class="container">© 2026 Marcon WANG (Hanshuo). All rights reserved.</div>
   </footer>
 
   <script>
