@@ -382,15 +382,15 @@
     </div>
 
     <div class="container hero-center">
-      <h2>Marcon WANG</h2>
-      <div class="hero-line"></div>
-      <p class="hero-subtitle">
-        Finance, Machine Learning, Data Analysis in Finance, Deep Learning
-      </p>
-      <p class="hero-subtitle small">
-        Learner, Candidate, Passioner
-      </p>
-    </div>
+  <h2 id="hero-title">Marcon WANG</h2>
+  <div class="hero-line"></div>
+  <p class="hero-subtitle" id="hero-subtitle">
+    Finance, Machine Learning, Data Analysis in Finance, Deep Learning
+  </p>
+  <p class="hero-subtitle small" id="hero-subtitle-small">
+    Learner, Candidate, Passioner
+  </p>
+</div>
   </header>
 
   <!-- Main -->
@@ -522,36 +522,71 @@
   </footer>
 
   <script>
-    
-    /* show the final result on the screen*/
-    
-    const pages = ["home", "cv", "research", "projects", "calligraphy"];
+  const pages = ["home", "cv", "research", "projects", "calligraphy"];
 
-    function showPage(pageName) {
-      const target = pages.includes(pageName) ? pageName : "home";
-
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-      });
-
-      document.querySelectorAll('nav a').forEach(link => {
-        link.classList.remove('active');
-      });
-
-      const pageElement = document.getElementById(`page-${target}`);
-      const navElement = document.querySelector(`nav a[data-page="${target}"]`);
-
-      if (pageElement) pageElement.classList.add('active');
-      if (navElement) navElement.classList.add('active');
+  const heroContent = {
+    home: {
+      title: "Marcon WANG",
+      subtitle: "Finance, Machine Learning, Data Analysis in Finance, Deep Learning",
+      small: "Learner, Candidate, Passioner"
+    },
+    cv: {
+      title: "CV",
+      subtitle: "Curriculum Vitae, Education, Experience, and Skills",
+      small: "Academic Background and Professional Profile"
+    },
+    research: {
+      title: "Research",
+      subtitle: "Empirical Financial Research, Asset Pricing, and Machine Learning in Finance",
+      small: "Ideas, Topics, and Ongoing Interests"
+    },
+    projects: {
+      title: "Projects",
+      subtitle: "Coursework, Coding, Quantitative Finance, and Technical Practice",
+      small: "Selected Works and Portfolio"
+    },
+    calligraphy: {
+      title: "Calligraphy Sets",
+      subtitle: "Soft Brush Calligraphy, Personal Works, and Related Prizes",
+      small: "Artistic Interest and Cultural Practice"
     }
+  };
 
-    function handleRoute() {
-      const hash = window.location.hash.replace('#', '');
-      showPage(hash || 'home');
-    }
+  function updateHero(pageName) {
+    const content = heroContent[pageName] || heroContent.home;
 
-    window.addEventListener('hashchange', handleRoute);
-    window.addEventListener('load', handleRoute);
-  </script>
+    document.getElementById("hero-title").textContent = content.title;
+    document.getElementById("hero-subtitle").textContent = content.subtitle;
+    document.getElementById("hero-subtitle-small").textContent = content.small;
+  }
+
+  function showPage(pageName) {
+    const target = pages.includes(pageName) ? pageName : "home";
+
+    document.querySelectorAll(".page").forEach(page => {
+      page.classList.remove("active");
+    });
+
+    document.querySelectorAll("nav a").forEach(link => {
+      link.classList.remove("active");
+    });
+
+    const pageElement = document.getElementById(`page-${target}`);
+    const navElement = document.querySelector(`nav a[data-page="${target}"]`);
+
+    if (pageElement) pageElement.classList.add("active");
+    if (navElement) navElement.classList.add("active");
+
+    updateHero(target);
+  }
+
+  function handleRoute() {
+    const hash = window.location.hash.replace("#", "");
+    showPage(hash || "home");
+  }
+
+  window.addEventListener("hashchange", handleRoute);
+  window.addEventListener("load", handleRoute);
+</script>
 </body>
 </html>
